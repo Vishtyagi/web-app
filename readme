@@ -1,6 +1,8 @@
 This is a simple web application having a Web form and flask app as the backend using postgres sql as database.
 
-k8s -- Contains manifests and hem charts.
+Folder Details : 
+
+k8s -- Contains manifests and helm charts.
 src -- Contains Application code.
 Terraform -- Contains Terraform configuration files.
 
