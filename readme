@@ -1,0 +1,12 @@
+This is a simple web application having a Web form and flask app as the backend using postgres sql as database.
+
+k8s -- Contains manifests and hem charts.
+src -- Contains Application code.
+Terraform -- Contains Terraform configuration files.
+
+Steps to Run the flask Application 
+
+1. Apply the Terraform configuration file to create a necessary resources for EKS cluster which
+is using s3 as a backend . 
+2. Deploy helm charts and Manifests to the eks cluster.
+3. Access the application using load balancer end point on port 8000.
