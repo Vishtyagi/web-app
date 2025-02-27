@@ -2,7 +2,7 @@ module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "20.31.1"
   cluster_name    = local.cluster_name
-  cluster_version = var.kubernetes_version
+  cluster_version = "1.28"
   subnet_ids      = module.vpc.private_subnets
   cluster_endpoint_public_access = true
 
@@ -23,9 +23,10 @@ module "eks" {
   eks_managed_node_groups = {
 
     node_group = {
-      min_size     = 2
-      max_size     = 5
       desired_size = 2
+      min_size     = 1
+      max_size     = 2
+      
     }
   }
 }
