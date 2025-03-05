@@ -5,12 +5,12 @@ import logging
 
 app = Flask(__name__)
 
-logging.basicConfig(level=logging.INFO)  
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 def get_db_connection():
-    try:    
+    try:
         logger.info("Connecting to the database...")
         conn = psycopg2.connect(
             host=os.getenv('DATABASE_HOST'),
