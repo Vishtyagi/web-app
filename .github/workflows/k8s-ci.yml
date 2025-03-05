@@ -56,14 +56,14 @@ jobs:
     needs: docker-build
     runs-on: ubuntu-latest
     steps:
-      - name: Install Kubeval
+      - name: Install kubeval
         run: |
-          curl -sLO https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64
-          chmod +x kubeval-linux-amd64
-          sudo mv kubeval-linux-amd64 /usr/local/bin/kubeval
+          curl -sSL -o /usr/local/bin/kubeval https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64
+          chmod +x /usr/local/bin/kubeval
+          kubeval --version  # Verify installation
 
       - name: Validate Kubernetes YAMLs
-        run: kubeval kubernetes/*.yaml
+        run: kubeval kubernetes/**/*.yaml
 
       - name: Dry Run Deployment
         run: kubectl apply --dry-run=client -f kubernetes/deployment.yaml
