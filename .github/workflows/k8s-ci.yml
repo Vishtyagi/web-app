@@ -47,10 +47,10 @@ jobs:
       - name: Build and Tag Image
         run: |
           docker build -t myapp:${{ github.sha }} -f src/Dockerfile src/
-          docker tag myapp:${{ github.sha }} mydockerhub/myapp:latest
+          docker tag myapp:${{ github.sha }} ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
 
       - name: Push Image to DockerHub
-        run: docker push mydockerhub/myapp:latest
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
 
   k8s-validation:
     needs: docker-build
