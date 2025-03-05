@@ -59,7 +59,8 @@ jobs:
       - name: Install kubeval
         run: |
           curl -sSL -o /usr/local/bin/kubeval https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64
-          chmod +x /usr/local/bin/kubeval
+          chmod +x kubeval
+          sudo mv kubeval /usr/local/bin/
           kubeval --version  # Verify installation
 
       - name: Validate Kubernetes YAMLs
